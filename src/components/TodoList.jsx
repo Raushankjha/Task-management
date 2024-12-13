@@ -53,7 +53,7 @@ const TodoList = () => {
 
   return (
     <div className="todo">
-      <h2>To-Do List App</h2>
+      <h2>Task Management</h2>
       <div className="row">
         <input
           type="text"
