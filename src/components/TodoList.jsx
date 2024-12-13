@@ -5,7 +5,7 @@ const TodoList = () => {
   const [input, setInput] = useState("");
   const [editingIndex, setEditingIndex] = useState(null);
 
-  // Load tasks from localStorage on component mount
+  
   useEffect(() => {
     const savedTasks = localStorage.getItem("tasks");
     if (savedTasks) {
@@ -13,12 +13,12 @@ const TodoList = () => {
     }
   }, []);
 
-  // Save tasks to localStorage whenever they change
+  
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
-  // Add or edit a task
+  
   const addTask = () => {
     if (input.trim() === "") {
       alert("You must write a task!");
@@ -26,26 +26,26 @@ const TodoList = () => {
     }
 
     if (editingIndex !== null) {
-      // Editing an existing task
+      
       const updatedTasks = [...tasks];
       updatedTasks[editingIndex] = input;
       setTasks(updatedTasks);
       setEditingIndex(null);
     } else {
-      // Adding a new task
+      
       setTasks([...tasks, input]);
     }
 
     setInput("");
   };
 
-  // Delete a task
+  
   const deleteTask = (index) => {
     const updatedTasks = tasks.filter((_, i) => i !== index);
     setTasks(updatedTasks);
   };
 
-  // Start editing a task
+  
   const editTask = (index) => {
     setInput(tasks[index]);
     setEditingIndex(index);
